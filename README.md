@@ -1,6 +1,6 @@
 # Cypress assignment
 
-Acceptance testing Taltech [homepage](https://taltech.ee/).
+Acceptance testing TalTech [homepage](https://taltech.ee/).
 
 ## How to run:
 
