@@ -11,35 +11,26 @@ context("Taltech Search", () => {
         cy.visit("");
     })
 
-    it("user can search for person by their first name", ()=>{
+    it("user can search for a staff member by their first name", ()=>{
         cy.get(".main-container .top-search").type("Ago{enter}");
         cy.get(".contacts__name").contains("Ago Luberg");
     })
 
-    it("user can search for person by their last name", ()=>{
+    it("user can search for a staff member by their last name", ()=>{
         cy.get(".main-container .top-search").type("Luberg{enter}");
         cy.get(".contacts__name").contains("Ago Luberg");
     })
 
-    it("user can search for person by their full name", ()=>{
+    it("user can search for a staff member by their full name", ()=>{
         cy.get(".main-container .top-search").type("Ago Luberg{enter}");
         cy.get(".contacts__name").contains("Ago Luberg");
-    })
-
-    it("user can search for person and their position", ()=>{
-        cy.get(".main-container .top-search").type("German Mumma{enter}");
-        cy.get(".t-icon__plus-minus").click();
-        cy.get(".contacts__expand > .contacts__listing > li:nth-child(1)").first().should("have.text", "külalisõppejõud")
     })
 })
 
 context("Taltech Positions", () => {
 
-    beforeEach(() => {
+    it("user can search for a staff member and find their position", ()=>{
         cy.visit("");
-    })
-
-    it("user can search for person and their position", ()=>{
         cy.get(".main-container .top-search").type("German Mumma{enter}");
         cy.get(".t-icon__plus-minus").click();
         cy.get(".contacts__expand > .contacts__listing > li:nth-child(1)").first().should("have.text", "külalisõppejõud")
@@ -52,7 +43,7 @@ context("Taltech Grantee", () => {
         cy.visit("");
     })
 
-    it("grantee can find relevant information regarding grant using menu plus buttons", ()=>{
+    it("grantee can find relevant grant information by using menu plus buttons", ()=>{
         cy.get(".first-level-menu-item").contains("Tudeng").click();
         cy.get('.t-menu--icon-wrapp').contains("Finantsinfo").parent().find(".t-btn--plus").click();
         cy.get('.t-menu--icon-wrapp').contains("Õppetoetused ja stipendiumid").parent().find(".t-btn--plus").click();
@@ -60,7 +51,7 @@ context("Taltech Grantee", () => {
         cy.get(".main-container").find("h3").should("have.text", "Üliõpilase kohustused stipendiumi saamisel:")
     })
 
-    it("grantee can find relevant information regarding grant clicking relevant links", ()=>{
+    it("grantee can find relevant grant information by clicking relevant menu links", ()=>{
         cy.get(".first-level-menu-item").contains("Tudeng").click();
         cy.get('.t-menu--icon-wrapp').contains("Finantsinfo").click();
         cy.get('.t-menu--icon-wrapp').contains("Õppetoetused ja stipendiumid").click();
